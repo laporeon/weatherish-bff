@@ -1,2 +1,2 @@
-# weatherish-bff
-A BFF for my Weatherish CLI to prevent key exposure.
+# Weatherish BFF
+> A simple and clean BFF for my weatherish CLI.
