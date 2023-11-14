@@ -1,18 +1,22 @@
-import { createServer } from 'node:http';
+import 'dotenv/config';
+
+import cors from 'cors';
+import express from 'express';
+
+import { routes } from './routes/weather-routes.js';
 
 const port = 3000 || process.env.PORT;
+const app = express();
 
-const server = createServer((req, res) => {
-  res.writeHead(200, {
-    'Content-Type': 'application/json',
-  });
-  res.end(
-    JSON.stringify({
-      message: 'Hello World!',
-    }),
-  );
+app.use(cors());
+app.use(express.json());
+app.use(routes);
+
+app.use((req, res, next) => {
+  console.log(`Received request: ${req.method} ${req.url}`);
+  next();
 });
 
-server.listen(port, () => {
+app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
 });
