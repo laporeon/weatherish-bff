@@ -15,7 +15,6 @@ export class WeatherController {
 
       response.status(200).json(data);
     } catch (error) {
-      console.error({ error });
       response.status(500).json({ error });
     }
   }
