@@ -13,9 +13,9 @@ export class WeatherController {
         `data/2.5/weather?q=${city}&appid=${API_KEY}&units=${units}`,
       );
 
-      response.status(200).json(data);
+      return response.status(200).json(data);
     } catch (error) {
-      response.status(500).json({ error });
+      return response.status(500).json({ error });
     }
   }
 }
